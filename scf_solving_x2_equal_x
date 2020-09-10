@@ -1,0 +1,26 @@
+scf_criteria = 0.00001
+
+a = 0
+b = 1
+step = 0.1
+
+def func1(x):
+    return x
+
+def func2(x):
+    return x**2
+
+while True:
+    for i in range(100):
+        c = a + step * i
+
+        if func1(c) < func2(c):
+            a = c - step
+            b = c
+            step = step * 0.1
+            print(step)
+            break
+
+    if step < scf_criteria:
+        print(a,b)
+        break
